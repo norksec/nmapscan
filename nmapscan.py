@@ -7,6 +7,7 @@ from pyfiglet import Figlet
 import optparse
 import nmap
 import os
+from socket import *
 
 def cls():
 	os.system('cls' if os.name=='nt' else 'clear')
@@ -32,7 +33,12 @@ def main():
 	parser.add_option('-H', dest='tgtHost', type='string', help='specify target host')
 	parser.add_option('-p', dest='tgtPort', type='string', help='specify target ports seperated by commas <eg: 21,22,80>')
 	(options, args) = parser.parse_args()
-	tgtHost = options.tgtHost
+	try:
+		tgtHost = gethostbyname(options.tgtHost)
+	except:
+		print "[-] Cannot resolve '%s': Unknown host" %  tgtHost
+		exit(0)
+	
 	tgtPorts = str(options.tgtPort).split(',')
 
 	if (tgtHost == None) | (tgtPorts[0] == None):
