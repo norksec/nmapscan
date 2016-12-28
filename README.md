@@ -1,4 +1,4 @@
-# nmapscan
+# nmapscan.py
 
 Simple nmap scan written in Python.
 
