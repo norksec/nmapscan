@@ -38,7 +38,7 @@ def main():
 	except:
 		print "[-] Cannot resolve '%s': Unknown host" %  tgtHost
 		exit(0)
-	print options.tgtHost + ' resolved to ' + str(tgtHost)
+	print '\n[+] ' + options.tgtHost + ' resolved to ' + str(tgtHost) + '\n'
 	tgtPorts = str(options.tgtPort).split(',')
 
 	if (tgtHost == None) | (tgtPorts[0] == None):
