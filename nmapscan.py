@@ -35,6 +35,7 @@ def main():
 	(options, args) = parser.parse_args()
 	try:
 		tgtHost = gethostbyname(options.tgtHost)
+		print '%s resolved to ' + str(tgtHost) % options.tgtHost
 	except:
 		print "[-] Cannot resolve '%s': Unknown host" %  tgtHost
 		exit(0)
